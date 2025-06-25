@@ -6,7 +6,7 @@ public class code {
         System.out.print("Enter N value: ");
         int num = sc.nextInt();
 
-        int duplicate = num;
+        int duplicateNumber = num;
         int reverseNumber = 0;
 
         while (num > 0) {
@@ -14,6 +14,6 @@ public class code {
             num = num / 10;
         }
 
-        System.out.println(duplicate == reverseNumber);
+        System.out.println(duplicateNumber == reverseNumber);
     }
 }
