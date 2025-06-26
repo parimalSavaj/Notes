@@ -44,13 +44,11 @@ public class code {
             } else {
                 num2 = num2 % num1;
             }
-
-            if (num1 == 0) {
-                GCD = num2;
-            }
-            if (num2 == 0) {
-                GCD = num1;
-            }
+        }
+        if (num1 == 0) {
+            GCD = num2;
+        } else {
+            GCD = num1;
         }
         System.out.println("GCD = " + GCD);
     }
