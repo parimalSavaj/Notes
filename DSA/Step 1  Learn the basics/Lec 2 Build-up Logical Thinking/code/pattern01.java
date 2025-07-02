@@ -12,5 +12,6 @@ public class pattern01 {
             }
             System.out.println("*");
         }
+        sc.close();
     }
 }

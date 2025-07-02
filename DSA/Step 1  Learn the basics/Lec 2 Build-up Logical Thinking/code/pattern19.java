@@ -41,5 +41,6 @@ public class pattern19 {
             }
             System.out.println();
         }
+        sc.close();
     }
 }

@@ -18,5 +18,6 @@ public class pattern22 {
             }
             System.out.println();
         }
+        sc.close();
     }
 }

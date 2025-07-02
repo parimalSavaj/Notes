@@ -33,5 +33,6 @@ public class pattern09 {
 
             System.out.println();
         }
+        sc.close();
     }
 }
