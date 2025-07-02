@@ -14,5 +14,6 @@ public class code {
         }
 
         System.out.println("Your reverse Number is : " + reverseNumber);
+        sc.close();
     }
 }
