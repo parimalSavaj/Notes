@@ -15,5 +15,6 @@ public class code {
         }
 
         System.out.println(duplicateNumber == reverseNumber);
+        sc.close();
     }
 }

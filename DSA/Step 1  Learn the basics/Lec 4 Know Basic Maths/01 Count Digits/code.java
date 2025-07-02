@@ -12,5 +12,6 @@ public class code {
             count++;
         }
         System.out.println("Your count is : " + count);
+        sc.close();
     }
 }

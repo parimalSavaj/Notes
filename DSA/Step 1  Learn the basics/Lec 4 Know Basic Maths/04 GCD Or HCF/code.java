@@ -51,5 +51,6 @@ public class code {
             GCD = num1;
         }
         System.out.println("GCD = " + GCD);
+        sc.close();
     }
 }

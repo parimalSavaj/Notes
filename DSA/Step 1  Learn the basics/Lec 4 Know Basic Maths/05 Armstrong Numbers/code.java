@@ -24,5 +24,6 @@ public class code {
         }
 
         System.out.println(armstrongNumber == copyNumber);
+        sc.close();
     }
 }
