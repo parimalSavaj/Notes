@@ -21,5 +21,7 @@ public class code {
 
         Boolean isPalindrome = reverseString(0, str);
         System.out.println("Is the string a palindrome? " + isPalindrome);
+
+        sc.close();
     }
 }
