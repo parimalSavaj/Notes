@@ -2,6 +2,13 @@ import java.util.Scanner;
 
 public class code {
 
+    // public static void printName(int n){
+    //     if(n<1){
+    //         return;
+    //     }
+    //     System.out.println("Parimal");
+    //     printName(n-1);
+    // }
     public static void printName(int i,int n){
         if(i>n){
             return;
