@@ -24,6 +24,7 @@ public class code {
             System.out.println("your number count is = " + hashArr[number - 1]);
         }
 
+        sc.close();
     }
 
 }
