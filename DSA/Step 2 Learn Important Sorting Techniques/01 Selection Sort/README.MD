@@ -1,6 +1,6 @@
 ## selection sort
 
-**finger out minimum, and swap with first( or it's current position )**
+**figure out minimum, and swap with first( or it's current position )**
 
 > **`🧠`**
 
