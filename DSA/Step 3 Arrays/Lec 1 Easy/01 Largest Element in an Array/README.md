@@ -1,8 +1,12 @@
-### Brute Force
+## Brute Force
 
 - sorting the array and returning the last element.
 
-### Optimized Approach
+## Better Approach
+
+- no.
+
+## Optimized Approach
 
 - iterate through the array and keep track of the largest element using a if condition.
 
