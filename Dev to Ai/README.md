@@ -2,7 +2,7 @@
 
 ## LLM
 
-1. **basic**
+1. **basics**
 
 - understanding of LLMs.
 - architecture.
@@ -20,7 +20,7 @@
 - how to use LLM APIs
 - function calling
 - tool calling
-- ollma or docker model run on local
+- Ollama or docker model run on local
 
 ## learning advance topic
 
@@ -28,14 +28,8 @@
 - RAG
 - vector databases
 
-## LangChain
+## Frameworks
 
-- already lern topic based create app so tool for prectical using like LLM, RAG, prompt enginering, vector DB.
-
-## LangGraph
-
-- same like langChain
-
-## MCP sercers
-
-- same like langChain and LangGraph and create normla Ai agents.
+- LangChain
+- LangGraph
+- MCP Servers
