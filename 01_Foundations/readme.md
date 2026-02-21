@@ -10,10 +10,6 @@
 ### Operating System Fundamentals
 - Process vs thread: address space isolation, context switching cost, scheduling
 - Memory layout: stack (fixed size, thread-local), heap (dynamic, shared), data segment
-- Virtual memory: page tables, page faults, memory-mapped files
-- File descriptors: everything is a file, open file table, per-process vs system-wide limits
-- Permissions: Unix permission model, setuid, capability-based security
-- Signals: SIGTERM vs SIGKILL, graceful shutdown pattern
 
 ### I/O Models — Critical Foundation
 - **Blocking I/O:** Thread sleeps until kernel has data. Simplest model; does not scale beyond thread count.
