@@ -11,6 +11,7 @@
 - Process vs thread: address space isolation, context switching cost, scheduling
 - Memory layout: stack (fixed size, thread-local), heap (dynamic, shared), data segment
 
+
 ### Networking Fundamentals
 
 - OSI model: why layers exist, what each layer adds (encapsulation)
