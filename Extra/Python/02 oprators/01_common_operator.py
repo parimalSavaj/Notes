@@ -1,4 +1,4 @@
-# arithmetic operator: +, -, *, /, % etc.
+# arithmetic operator: +, -, *, /, %, **( power ) etc.
 
 # assignment operator: =, +=, -= etc.
 
