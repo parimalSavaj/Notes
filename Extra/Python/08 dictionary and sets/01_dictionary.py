@@ -20,3 +20,6 @@ print(dict.get("names")) # using get method if key not found so return 'None'
 print(dict.items())
 print(dict.keys())
 print(dict.values())
+dict.update({"age":21})
+dict.update({"ages":21}) # add key pare if not key not found
+print(dict)
