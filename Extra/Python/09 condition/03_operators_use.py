@@ -10,3 +10,12 @@
 # and
 # or
 # not
+
+# in operator
+
+name = input("Enter your name: ")
+
+name_checker = "pari"
+
+if(name_checker in name):
+    print("hello, parimal")
