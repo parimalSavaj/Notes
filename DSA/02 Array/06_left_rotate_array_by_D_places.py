@@ -20,5 +20,5 @@ array = [1,2,3,4,5,6,7]
 # print(f"after rotate 3 place new array look like {leftRotateArrByDPlaces(array,3)}")
 print(f"after rotate 4 place new array look like {leftRotateArrByDPlaces(array,4)}")
 
-# TC O(n + d) 
+# TC O(n) 
 # extra space O(d)

@@ -21,3 +21,5 @@ arr = [1,2,3,4,5,6,7]
 print(f"after rotate {4} places new array look like {leftRotate(arr,4)}")
 # print(f"after rotate {8} places new array look like {leftRotate(arr,8)}")
 
+# TC O(n)
+# SC O(1)
