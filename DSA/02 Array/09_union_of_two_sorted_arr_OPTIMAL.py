@@ -1,4 +1,4 @@
-# find union and intersection of two sorted arrays.
+# find union of two sorted arrays.
 # two pointer method
 
 def union(arr1, arr2):
