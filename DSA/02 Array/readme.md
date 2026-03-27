@@ -6,3 +6,4 @@
 ## normal
 
 9. union and intersection
+10. find missing number
