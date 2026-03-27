@@ -20,3 +20,6 @@ def maxContinuousOnes(arr):
 arr = [1,1,0,1,1,1,0,1,1]
 
 print(f"inside array maximum 1 is {maxContinuousOnes(arr)}")
+
+# TC O(n)
+# SC O(1)
