@@ -30,5 +30,5 @@ def longestSubArrayWithSumK(arr, k):
 
     return maxLen
 
-# TC O(n)
+# TC O(2n)
 # SC O(1)
