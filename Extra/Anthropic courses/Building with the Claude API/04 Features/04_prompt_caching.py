@@ -108,3 +108,11 @@ modified_prompt = SYSTEM_PROMPT + " "
 
 res3 = chat(messages2, system=modified_prompt, tools=tools)
 print(get_text(res3))
+
+
+# Rules of caching:
+
+# 1. Exact match: Cache is used only if the system prompt and tool definitions are exactly the same (including whitespace).
+# 2. Cache control: Only messages and tools marked with "cache_control" can be cached.
+# 3. Cache read/write tokens: The API response includes "cache_creation_input_tokens" and "cache_read_input_tokens" to help you understand when cache is being used.
+# 4. Time: maxumum cache duration is 24 hours, but cache can be invalidated sooner if there are changes to the prompt or tools.
