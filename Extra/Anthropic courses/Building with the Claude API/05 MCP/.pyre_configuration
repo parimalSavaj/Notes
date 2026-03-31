@@ -1,0 +1,12 @@
+{
+  "source_directories": [
+    "."
+  ],
+  "search_path": [
+    "/home/av69/me/Notes/Extra/Anthropic courses/Building with the Claude API/05 MCP/.venv/lib/python3.12/site-packages"
+  ],
+  "exclude": [
+    "**/__pycache__/**",
+    ".venv/**"
+  ]
+}
