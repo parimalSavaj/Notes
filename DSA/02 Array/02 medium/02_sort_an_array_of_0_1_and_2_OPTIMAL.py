@@ -16,13 +16,11 @@ def sortArray(arr):
             arr[high],arr[mid] = arr[mid], arr[high]
             high -=1
 
-    return arr
-
-
 # arr = [2, 0, 1]
 arr = [2, 0, 1, 2, 1, 0]
 
-print(f"after sorting look like {sortArray(arr)}")
+sortArray(arr)
+print(arr)
 
 # TC O(n)
 # SC O(1)
