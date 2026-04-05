@@ -36,6 +36,6 @@ const user1 = new User("Alex");
 console.log(user1.__proto__ === User.prototype); // true
 ```
 
-`Note`: In modern JavaScript, you will often see Object.getPrototypeOf(user1) used instead of user1.**proto**. They do the exact same thing, but getPrototypeOf is the officially recommended syntax.
+`Note`: In modern JavaScript, you will often see Object.getPrototypeOf(user1) used instead of user1.`__proto__`. They do the exact same thing, but getPrototypeOf is the officially recommended syntax.
 
 ---
