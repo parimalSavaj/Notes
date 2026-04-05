@@ -68,7 +68,7 @@ innerFunc();
  Because of this feature, JavaScript supports:
 
  ✔ Callbacks
- ✔ Higher-order functions
+ ✔ Higher-order functions: return function
  ✔ Event handling
  ✔ Functional programming
 */
