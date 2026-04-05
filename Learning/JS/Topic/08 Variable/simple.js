@@ -1,7 +1,7 @@
 /*
-========================================
-JavaScript var, let, const (Quick Notes)
-========================================
+==========================
+JavaScript var, let, const
+==========================
 
 SCOPE:
 - Function scope → inside function
