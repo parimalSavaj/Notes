@@ -21,7 +21,7 @@ User.prototype.sayHello = function () {
 
 or we create class method so it's direct put inside User class prototype
 
-## 2. **proto** (The Invisible String)
+## 2. **`__proto__`** (The Invisible String)
 
 - **Who has it?** Every single object instance that gets created.
 
