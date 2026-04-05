@@ -3,7 +3,6 @@
 const serverLogger = {
   prefix: "[SERVER]",
   log: function (level, message) {
-    // Print message using current object's prefix
     console.log(`${this.prefix} [${level}]: ${message}`);
 
     // Check what "this" is
@@ -39,7 +38,7 @@ serverLogger.log.call(dbLogger, "ERROR", "Connection timeout");
  - Second argument = array of parameters
 
  Use when:
- - You already have data in array form
+ - when you already have an array of data, like from an API response, and you want to pass it into a function without manually writing out data[0], data[1], data[2]
 */
 
 serverLogger.log.apply(dbLogger, ["INFO", "Query executed successfully"]);
@@ -58,6 +57,5 @@ serverLogger.log.apply(dbLogger, ["INFO", "Query executed successfully"]);
 
 const logToDB = serverLogger.log.bind(dbLogger);
 
-// Now this function will always use dbLogger as "this"
 logToDB("WARN", "High memory usage");
 logToDB("ERROR", "Connection dropped");
