@@ -59,3 +59,13 @@ const logToDB = serverLogger.log.bind(dbLogger);
 
 logToDB("WARN", "High memory usage");
 logToDB("ERROR", "Connection dropped");
+
+// ===================== SUMMARY =====================
+
+/*
+Method | Executes Immediately? | How arguments are passed        | What it returns
+------ | --------------------- | ------------------------------- | -------------------------
+call   | Yes                   | Comma-separated (arg1, arg2)    | Result of the function
+apply  | Yes                   | Array ([arg1, arg2])            | Result of the function
+bind   | No                    | Comma-separated (arg1, arg2)    | A new, bound function
+*/
