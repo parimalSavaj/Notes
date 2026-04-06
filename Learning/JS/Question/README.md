@@ -5,3 +5,4 @@
 | 003 | [What is a first class function](/Learning/JS/Question/003_first_class_fun.js)                       |
 | 004 | [What are closures](/Learning/JS/Question/004_closures.js)                                           |
 | 005 | [What are promise](/Learning/JS/Question/005_promise.js)                                             |
+| 006 | [What are promise](/Learning/JS/Question/006_hoisting.js)                                            |
