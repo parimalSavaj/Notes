@@ -11,3 +11,8 @@
 | 009 | [What is the difference between == and === when comparing objects?](/Learning/JS/Question/009_ans.js)        |
 | 010 | [What is the difference between map() and forEach()?](/Learning/JS/Question/010_ans.js)                      |
 | 011 | [What is the difference between shallow copy and deep copy in JavaScript?](/Learning/JS/Question/011_ans.js) |
+| 012 | [What are template literals and tagged templates?](/Learning/JS/Question/012_ans.js)                         |
+| 013 | [What are ES modules? Default vs named exports?](/Learning/JS/Question/013_ans.js)                           |
+| 014 | [What are optional chaining (?.) and nullish coalescing (??)?](/Learning/JS/Question/014_ans.js)             |
+| 015 | [How do async/await work? How do you handle errors?](/Learning/JS/Question/015_ans.js)                       |
+| 016 | [Explain map(), filter(), and reduce() with examples.](/Learning/JS/Question/016_ans.js)                     |
