@@ -16,7 +16,7 @@ def majorityElement(arr):
     if newCount > len(arr)//2:
         return element
 
-arr = [2, 2, 1, 3, 2]
+arr = [2, 3, 2, 2, 3]
 
 print(majorityElement(arr))
 
