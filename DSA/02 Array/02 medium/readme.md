@@ -2,6 +2,7 @@
 
 - 02 Sort an array of 0s, 1s, and 2s
 - 03 majority element
+- 07 Next Permutation
 
 ## normal
 
