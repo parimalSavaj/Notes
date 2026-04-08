@@ -7,3 +7,5 @@
 
 - 01 two sum
 - 04 maximum sub-array sum
+- 05 rearrange array by sing
+- 06 stock buy and sell
