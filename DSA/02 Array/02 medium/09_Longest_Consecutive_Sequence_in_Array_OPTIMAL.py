@@ -19,3 +19,6 @@ def longestConsecutiveArr(arr):
 arr = [100, 4, 200, 1, 3, 2]
 
 print(longestConsecutiveArr(arr))
+
+# TC O(3n)
+# SC O(n)
