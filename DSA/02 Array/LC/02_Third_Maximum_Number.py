@@ -53,7 +53,6 @@ class Solution(object):
         first = second = third = None
 
         for num in nums:
-            # skip duplicates
             if num == first or num == second or num == third:
                 continue
 
