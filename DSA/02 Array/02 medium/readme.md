@@ -5,6 +5,7 @@
 - 07 Next Permutation 🔴
 - 09 Longest Consecutive Sequence in an Array
 - 12 Traverse Matrix in Spiral Order
+- 13 Count subarrays with given sum
 
 ## normal
 
