@@ -2,4 +2,4 @@
 
 ## normal
 
-- 01 Pascal's Triangle I
+- 01 Pascal's Triangle I, II, III
