@@ -30,17 +30,17 @@ def printPascalTriangle(n):
         print("")
         return
 
-    row = n
+    rows = n
 
-    for i in range(0, row):
+    for row in range(0, rows):
 
         count = 1
         print(count, end=" ")
 
-        for j in range(0, i):
-            count = count * (i - j)
-            count = count // (j + 1)
-            
+        for col in range(0, row):
+            count = count * (row - col)
+            count = count // (col + 1)
+
             print(count, end=" ")
         
         print()
