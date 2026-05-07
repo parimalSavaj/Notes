@@ -19,6 +19,31 @@
 
 # Output: [1, 2]
 
+####################
+#     Better       #
+####################
+
+def majorityElement(arr):
+
+    n = len(arr)
+
+    freq = {}
+    ans = []
+
+    for num in arr:
+        freq[num] = freq.get(num, 0) + 1
+
+    for key, value in freq.items():
+
+        if value > n // 3:
+            ans.append(key)
+
+    return ans
+
+####################
+#     Optimal      #
+####################
+
 def majorityElement(arr):
     n = len(arr)
     count1, count2 = 0, 0
