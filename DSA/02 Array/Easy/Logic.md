@@ -11,15 +11,16 @@
 
 #### better
 
-- first store K'th element of array inside temp array
-- then this K'th element to end move to first using condition
+- first store K'th element of array inside temp array `temp = arr[:k]`
+
+- then this K'th element to last element of array move to first using condition
 
 ```
-    for i in range(k,n):
+    for i in range(k,n):    # condition k'th element to last element
         arr[i-k] = arr[i]
 ```
 
-- then temp store element put in last pace using condition
+- then temp's element put in last
 
 ```
     for i in range(n-k,n):
@@ -29,4 +30,10 @@
 #### optimal
 
 - here main logic is Reversal Logic
-- then call three time 0 to k -1, then k to n - 1 and final 0 to n - 1
+- then call three time 0 to k - 1, then k to n - 1 and final 0 to n - 1
+
+#### for right rotation!
+
+- first rotate full array 0 to n - 1
+- then first k'th element 0 to k - 1
+- and then remening k to n - 1
