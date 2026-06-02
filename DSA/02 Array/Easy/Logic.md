@@ -37,3 +37,9 @@
 - first rotate full array 0 to n - 1
 - then first k'th element 0 to k - 1
 - and then remening k to n - 1
+
+## 06 Move Zeros to End
+
+- here first put one pinter 'i' in to 0 index.
+- then start running loop with 'j'
+- and 'j' value check `if 'j' value is not 0` so `swap` this value
