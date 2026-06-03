@@ -22,4 +22,4 @@ arr2 = [1, 1, 1, 2]
 print(intersectionOfTwoSortedArray(arr1, arr2))
 
 # TC O(n + m)
-# SC O(n)
+# SC O(k)
