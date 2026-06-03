@@ -43,3 +43,15 @@
 - here first put one pinter 'i' in to 0 index.
 - then start running loop with 'j'
 - and 'j' value check `if 'j' value is not 0` so `swap` this value
+
+## 07 Union of two sorted arrays
+
+- first prepare variable, length of both array and 'i' & 'j' pointer and unionArr
+- then while loop for length of `i < n1 and j < n2`
+  - inside this loop get small value using condition `arr1[i] < arr2[j]`, second elif `arr2[j] < arr1[i]` and same value using `arr1[i] == arr[j]`
+  - then inside main condition to check first value of unionArr and last element of unionArr is not this element.
+    - `if not unionArr or unionArr[-1] != arr1[i]` for arr1[i] < arr2[j]
+    - `if not unionArr or unionArr[-1] != arr2[j]` for arr2[j] < arr1[i]
+    - `if not unionArr or unionArr[-1] != arr1[i]` for arr1[i] == arr2[j]
+- using above logic only one array end and loop over
+- so for remaining any array we want to write single single while with if condition

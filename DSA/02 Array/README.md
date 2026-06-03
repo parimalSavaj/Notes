@@ -2,6 +2,7 @@
 
 - [04 Remove duplicates from Sorted array](./Easy/04_Remove_duplicates_from_Sorted_array.py)
 - [06 Move Zeros to End](./Easy/06_Move_Zeros_to_End.py)
+- [07 Union of two sorted arrays](./Easy/07_Union_of_two_sorted_arrays.py)
 
 ### same
 
