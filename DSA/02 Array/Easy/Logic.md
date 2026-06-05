@@ -55,3 +55,9 @@
     - `if not unionArr or unionArr[-1] != arr1[i]` for arr1[i] == arr2[j]
 - using above logic only one array end and loop over
 - so for remaining any array we want to write single single while with if condition
+
+## 08 Find missing number
+
+- main logic is first N number sum formula `n * (n + 1) // 2`
+- then run loop on given array and sum them
+- in last minus Total sum with array sum, and we get missing number.
