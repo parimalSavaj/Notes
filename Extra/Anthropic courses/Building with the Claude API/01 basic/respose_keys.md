@@ -1,77 +1,81 @@
-# 🧠 Claude API Response Architecture (AI Engineer Notes)
+# 🧠 Claude API Response Architecture (v2.0)
 
-When Claude responds to a prompt, it returns a JSON object. Your backend code must read specific keys in this object to determine the next step in the agent logic.
+When Claude responds to a request, it returns a structured JSON object. Your application logic must branch based on specific keys to handle text generation, tool execution, safety refusals, and token billing.
 
-## 1. `stop_reason` (Control Flow)
+## 1. `stop_reason` (Traffic Control)
 
-This key tells your code _why_ the LLM stopped generating output.
+This key dictates how your backend processes the `content` array.
 
-- **`"end_turn"`** 👉 **The conversation is done.** Claude has finished its final answer. Send the text to the user.
-- **`"tool_use"`** 👉 **The conversation is paused.** Claude needs data. Your code must read the tool request, run the local function, and send the results back to Claude.
-- **`"max_tokens"`** 👉 **Error state.** Claude hit the output length limit before finishing. Your code needs to handle a cut-off, incomplete string.
-- **`"stop_sequence"`** 👉 **Rule triggered.** Claude generated a forbidden/custom stop word you defined, so the API halted it early.
+- **`"end_turn"`**: Success. Claude finished generating naturally.
+- **`"tool_use"`**: Action Required. Claude is requesting a function call. Stop and execute the function identified in the `content` blocks.
+- **`"max_tokens"`**: Limit reached. Generation was cut off by your `max_tokens` setting.
+- **`"stop_sequence"`**: Triggered. The model hit a custom string you defined.
+- **`"refusal"`**: Safety trigger. The model declined the request due to policy violations. **Check `stop_details` for the reason.**
 
-## 2. `content` Array (Payload Parsing)
+## 2. `content` Array (Polymorphic Payload)
 
-Because Claude can speak to the user and request a tool at the exact same time, the `content` is an array of objects. Your code loops through it and checks the `type` key:
+Claude returns an array of objects. **Always inspect the `type` property.** Do not assume index `0` is always a final text answer.
 
-- **`type: "text"`** 👉 Contains human-readable text (e.g., _"Let me check that..."_). Route this to the frontend UI.
-- **`type: "tool_use"`** 👉 Contains computer instructions. Inside this block, you will find:
-- `name`: The name of your function (e.g., `"get_sales_data"`)
-- `input`: The JSON arguments for your function (e.g., `{"quarter": "Q3"}`)
+| Type             | Action                 | Key to Read                  |
+| ---------------- | ---------------------- | ---------------------------- |
+| **`"text"`**     | Display to user        | `block.text`                 |
+| **`"tool_use"`** | Execute local function | `block.name` & `block.input` |
+| **`"thinking"`** | Log/UI Debugging       | `block.thinking`             |
 
-## 3. `usage` (Memory & Billing Management)
+- **Pro Tip:** If a response contains multiple blocks (e.g., a `thinking` block followed by a `text` block), ensure your UI only displays the `text` as the "answer" to keep the experience clean.
 
-This tracks the token count for the specific API call.
+## 3. `usage` (Billing & Context Management)
 
-- **`input_tokens`** 👉 The size of the prompt and history you sent. Track this so you don't overflow the context window (memory limit). If this gets too high, trigger a function to summarize old messages.
-- **`output_tokens`** 👉 The size of Claude's response. Track this to monitor your Anthropic API costs.
+Use these keys to manage your context window and track API costs.
+
+- **`input_tokens`**: The total cost for your prompt + history.
+- **`output_tokens`**: The cost for Claude's generated answer.
+- **`cache_read_input_tokens`**: Tokens successfully pulled from your Prompt Cache (Cheaper).
+- **`cache_creation_input_tokens`**: Tokens newly written to your Prompt Cache (Expensive).
+
+## 4. `stop_details` (Safety & Guardrails)
+
+Available when `stop_reason` is `"refusal"`.
+
+- **`type`**: Usually `"refusal"`.
+- **`reason`**: The policy category that triggered the block (e.g., `"policy_violation"`, `"cyber"`, `"bio"`). Use this to inform the user or log for compliance.
 
 ---
 
-## 💻 Example API Response
+## 💻 Example: Advanced API Response Object
 
 ```json
 {
+  "id": "msg_01...",
   "role": "assistant",
+  "model": "claude-fable-5",
   "stop_reason": "tool_use",
   "content": [
     {
-      "type": "text",
-      "text": "Let me check the database for Q3."
+      "type": "thinking",
+      "thinking": "The user wants sales data for Q3. I should use the get_sales tool."
     },
     {
       "type": "tool_use",
+      "id": "toolu_01...",
       "name": "get_sales_data",
       "input": { "quarter": "Q3" }
     }
   ],
   "usage": {
-    "input_tokens": 450,
-    "output_tokens": 65
+    "input_tokens": 500,
+    "cache_read_input_tokens": 400,
+    "cache_creation_input_tokens": 0,
+    "output_tokens": 80
   }
 }
 ```
 
 ---
 
-### 📖 API Rosetta Stone & SDK Abstraction
+## 📝 The Golden Rules for Your Code
 
-| Concept                     | Anthropic (Claude)    | OpenAI (GPT)                 | Google (Gemini)             | 🚀 Vercel AI SDK            |
-| --------------------------- | --------------------- | ---------------------------- | --------------------------- | --------------------------- |
-| **Stop Indicator Key**      | `stop_reason`         | `finish_reason`              | `finishReason`              | _Handled under the hood_    |
-| **Value: "Done Talking"**   | `"end_turn"`          | `"stop"`                     | `"STOP"`                    | Stream resolves natively    |
-| **Value: "Need a Tool"**    | `"tool_use"`          | `"tool_calls"`               | (Checks for `functionCall`) | Auto-triggers `execute()`   |
-| **Value: "Limit Reached"**  | `"max_tokens"`        | `"length"`                   | `"MAX_TOKENS"`              | `finishReason === 'length'` |
-| **Where is the text?**      | `content[].text`      | `choices[0].message.content` | `...parts[].text`           | `result.text`               |
-| **Where is the tool JSON?** | `content[].tool_use`  | `...tool_calls[].function`   | `...parts[].functionCall`   | Parsed natively via Zod     |
-| **Tokens (Memory In)**      | `usage.input_tokens`  | `usage.prompt_tokens`        | `...promptTokenCount`       | `usage.promptTokens`        |
-| **Tokens (Memory Out)**     | `usage.output_tokens` | `usage.completion_tokens`    | `...candidatesTokenCount`   | `usage.completionTokens`    |
-
----
-
-### 📝 Key Takeaway for Your Notes:
-
-When you look at the first three columns, you are looking at the **Raw REST APIs**. If you build your app using those, you have to manually parse arrays, check specific strings, and write different `if/else` statements for every provider.
-
-When you look at the **Vercel AI SDK column**, notice how there are almost no raw JSON paths. The SDK hides the complex API keys from you. It automatically finds the text, automatically validates the tool JSON, and automatically runs your backend functions regardless of which model is powering it.
+1. **Iterate, Don't Guess**: Use a loop or `.find()` to search for `tool_use` types before rendering text.
+2. **Safety First**: Always handle `stop_reason: "refusal"` before parsing `content`. If it’s a refusal, the content may be empty or incomplete.
+3. **Cache Awareness**: If `cache_read_input_tokens` is consistently `0`, your cache breakpoints are likely in the wrong place. Review your `cache_control` strategy.
+4. **Looping Logic**: If `stop_reason === "tool_use"`, execute the tool, append the result as a `tool_result` content block, and send it back to the API to continue the conversation.
